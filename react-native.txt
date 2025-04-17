@@ -1,0 +1,105 @@
+--> Complete Setup for Android Application
+
+Install Chocolatey : https://chocolatey.org/install
+
+Install Node.js : https://nodejs.org/en/download
+
+choco install -y nodejs-lts microsoft-openjdk17 
+
+Download Android Studio : https://developer.android.com/studio
+
+Docs: https://reactnative.dev/docs/set-up-your-environment
+
+--> Create a Project from Scratch:
+
+npx react-native init .
+npx @react-native-community/cli init myApp
+cd myApp
+npm i
+
+--> for run start - npx react-native start
+--> for run doctor - npx react-native doctor
+--> for run android emulator - npx react-native run-android
+
+--> First Program :
+
+<View style={backgroundStyle}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <ScrollView
+        style={backgroundStyle}>
+        <View style={{paddingRight: safePadding}}>
+          <Header/>
+        </View>
+        <View
+          style={{
+            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            paddingHorizontal: safePadding,
+            paddingBottom: safePadding,
+          }}>
+          <Section title="Step One">
+            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+            screen and then come back to see your edits.
+          </Section>
+          <Section title="See Your Changes">
+            <ReloadInstructions />
+          </Section>
+          <Section title="Debug">
+            <DebugInstructions />
+          </Section>
+          <Section title="Learn More">
+            Read the docs to discover what to do next:
+          </Section>
+          <LearnMoreLinks />
+        </View>
+      </ScrollView>
+</View>
+
+--> for again start app - npx react-native start
+
+--> Folder Structure :
+
+MyReactNativeApp/
+│── android/             # Native Android code
+│── ios/                 # Native iOS code
+│── src/                 # Main source folder
+│   ├── components/      # Reusable UI components (Header, Footer, Buttons, etc.)
+│   │   ├── Header.js
+│   │   ├── Footer.js
+│   ├── layouts/         # Layout components
+│   │   ├── Layout.js    # Main layout wrapper
+│   ├── screens/         # Screens/pages
+│   │   ├── HomeScreen.js
+│   │   ├── ProfileScreen.js
+│   ├── navigation/      # React Navigation setup
+│   │   ├── AppNavigator.js
+│   ├── assets/          # Images, fonts, icons
+│   │   ├── images/
+│   │   ├── fonts/
+│   ├── styles/          # Global styles
+│   │   ├── colors.js
+│   │   ├── typography.js
+│   ├── utils/           # Helper functions, constants
+│   │   ├── helpers.js
+│   │   ├── constants.js
+│   ├── services/        # API calls, authentication
+│   │   ├── api.js
+│   ├── context/         # Context API (global state management)
+│   │   ├── AuthContext.js
+│   ├── redux/           # Redux store, actions, reducers (if using Redux)
+│   │   ├── store.js
+│   │   ├── actions/
+│   │   ├── reducers/
+│── App.js               # Main entry file
+│── index.js             # Entry point for the app
+│── package.json         # Dependencies and scripts
+│── babel.config.js      # Babel configuration
+│── metro.config.js      # Metro bundler configuration
+│── .gitignore           # Git ignore file
+│── node_modules/        # Installed dependencies
+
+
+--> FlstList : Render list of items in react native
+
