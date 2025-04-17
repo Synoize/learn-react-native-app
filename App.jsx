@@ -1,0 +1,33 @@
+import { Button, ScrollView, StyleSheet, Text, TextInput, View } from "react-native"
+import Header from "./src/components/Header";
+import { extranalStyles } from "./style";
+import SignupForm from "./src/components/SignupForm";
+import HandleForm from "./src/components/HandleForm";
+import Flatlist from "./src/components/Flatlist";
+import Map from "./src/components/Map";
+import Grid from "./src/components/Grid";
+import SectionListApp from "./src/components/SectionList";
+
+const App = () => {
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'space-between' }}>
+      <Header />
+      <View style={extranalStyles.box} >
+        {/* <HandleForm/> // Handle Form */}
+        {/* <SignupForm/> // Signup Form */}
+        {/* <Flatlist/> // Flat List */}
+        {/* <Map/> // Map View */}
+        {/* <Grid/> // Grid View */}
+        <SectionListApp/> //Section List
+      </View>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+
+})
+
+
+export default App
