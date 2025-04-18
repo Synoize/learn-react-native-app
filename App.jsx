@@ -7,6 +7,7 @@ import Flatlist from "./src/components/Flatlist";
 import Map from "./src/components/Map";
 import Grid from "./src/components/Grid";
 import SectionListApp from "./src/components/SectionList";
+import ClassComponent from "./src/components/ClassComponent";
 
 const App = () => {
 
@@ -19,7 +20,9 @@ const App = () => {
         {/* <Flatlist/> // Flat List */}
         {/* <Map/> // Map View */}
         {/* <Grid/> // Grid View */}
-        <SectionListApp/> //Section List
+        {/* <SectionListApp/> //Section List */}
+
+        <ClassComponent/> // Class Component
       </View>
     </View>
   )
