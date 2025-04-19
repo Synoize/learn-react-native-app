@@ -10,6 +10,7 @@ import SectionListApp from "./src/components/SectionList";
 import ClassComponent from "./src/components/ClassComponent";
 import UseStateHook from "./src/components/hooks/UseStateHook";
 import UseEffectHook from "./src/components/hooks/UseEffectHook";
+import ConditionalRendering from "./src/components/hooks/ConditionalRendering";
 
 const App = () => {
 
@@ -27,7 +28,9 @@ const App = () => {
 
         {/* Hooks */}
         {/* <UseStateHook/> // useState hook */}
-        <UseEffectHook/> // useEffect hook
+        {/* <UseEffectHook/> // useEffect hook */}
+
+        <ConditionalRendering/>  //Conditional Rendering
 
       </View>
     </View>

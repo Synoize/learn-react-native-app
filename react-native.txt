@@ -20,6 +20,7 @@ npm i
 --> for run start - npx react-native start
 --> for run doctor - npx react-native doctor
 --> for run android emulator - npx react-native run-android
+--> show logs for android - npx react-native log-android
 
 --> First Program :
 
@@ -102,4 +103,12 @@ MyReactNativeApp/
 
 
 --> FlstList : Render list of items in react native
+--> SectionList 
+--> Map
+--> ClassComponent
+--> Grid & Flex
+--> Hooks
+  > useState
+  > useEffect
 
+--> ConditionalRendering 
