@@ -11,6 +11,7 @@ import ClassComponent from "./src/components/ClassComponent";
 import UseStateHook from "./src/components/hooks/UseStateHook";
 import UseEffectHook from "./src/components/hooks/UseEffectHook";
 import ConditionalRendering from "./src/components/hooks/ConditionalRendering";
+import Flexbox from "./src/components/Flexbox";
 
 const App = () => {
 
@@ -30,7 +31,9 @@ const App = () => {
         {/* <UseStateHook/> // useState hook */}
         {/* <UseEffectHook/> // useEffect hook */}
 
-        <ConditionalRendering/>  //Conditional Rendering
+        {/* <ConditionalRendering/>  //Conditional Rendering */}
+
+        <Flexbox/> // Responsive Design
 
       </View>
     </View>
