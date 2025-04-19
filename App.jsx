@@ -12,9 +12,10 @@ import UseStateHook from "./src/components/hooks/UseStateHook";
 import UseEffectHook from "./src/components/hooks/UseEffectHook";
 import ConditionalRendering from "./src/components/hooks/ConditionalRendering";
 import Flexbox from "./src/components/Flexbox";
-import Buttons from "./src/components/Buttons";
-import RadioButton from "./src/components/RadioButton";
+import Buttons from "./src/components/buttons/Buttons";
+import RadioButton from "./src/components/buttons/RadioButton";
 import Loader from "./src/components/Loader";
+import ModalView from "./src/components/ModalView";
 
 const App = () => {
 
@@ -40,7 +41,9 @@ const App = () => {
 
         {/* <Buttons/> // Buttons */}
         {/* <RadioButton/> // RadioButton */}
-        <Loader/>
+        {/* <Loader/> // Loader : ActivityIndicator */}
+
+        <ModalView/> // Modal or Dialog Box
       </View>
     </View>
   )
