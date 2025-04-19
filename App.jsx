@@ -1,4 +1,4 @@
-import {  StyleSheet, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 import Header from "./src/components/Header";
 import { extranalStyles } from "./style";
 import SignupForm from "./src/components/SignupForm";
@@ -16,6 +16,7 @@ import Buttons from "./src/components/buttons/Buttons";
 import RadioButton from "./src/components/buttons/RadioButton";
 import Loader from "./src/components/Loader";
 import ModalView from "./src/components/ModalView";
+import PressableComponent from "./src/components/buttons/PressableComponent";
 
 const App = () => {
 
@@ -43,7 +44,9 @@ const App = () => {
         {/* <RadioButton/> // RadioButton */}
         {/* <Loader/> // Loader : ActivityIndicator */}
 
-        <ModalView/> // Modal or Dialog Box
+        {/* <ModalView/> // Modal or Dialog Box */}
+
+        <PressableComponent/> // Pressable Component
       </View>
     </View>
   )
