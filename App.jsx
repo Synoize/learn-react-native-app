@@ -1,4 +1,4 @@
-import { Button, ScrollView, StyleSheet, Text, TextInput, View } from "react-native"
+import {  StyleSheet, View } from "react-native"
 import Header from "./src/components/Header";
 import { extranalStyles } from "./style";
 import SignupForm from "./src/components/SignupForm";
@@ -14,6 +14,7 @@ import ConditionalRendering from "./src/components/hooks/ConditionalRendering";
 import Flexbox from "./src/components/Flexbox";
 import Buttons from "./src/components/Buttons";
 import RadioButton from "./src/components/RadioButton";
+import Loader from "./src/components/Loader";
 
 const App = () => {
 
@@ -38,7 +39,8 @@ const App = () => {
         {/* <Flexbox/> // Responsive Design */}
 
         {/* <Buttons/> // Buttons */}
-        <RadioButton/> // RadioButton
+        {/* <RadioButton/> // RadioButton */}
+        <Loader/>
       </View>
     </View>
   )
