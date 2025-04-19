@@ -12,6 +12,7 @@ import UseStateHook from "./src/components/hooks/UseStateHook";
 import UseEffectHook from "./src/components/hooks/UseEffectHook";
 import ConditionalRendering from "./src/components/hooks/ConditionalRendering";
 import Flexbox from "./src/components/Flexbox";
+import Buttons from "./src/components/Buttons";
 
 const App = () => {
 
@@ -33,8 +34,9 @@ const App = () => {
 
         {/* <ConditionalRendering/>  //Conditional Rendering */}
 
-        <Flexbox/> // Responsive Design
+        {/* <Flexbox/> // Responsive Design */}
 
+        <Buttons/> // Buttons
       </View>
     </View>
   )
