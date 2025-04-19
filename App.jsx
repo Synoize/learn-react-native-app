@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native"
+import { StatusBar, StyleSheet, View } from "react-native"
 import Header from "./src/components/Header";
 import { extranalStyles } from "./style";
 import SignupForm from "./src/components/SignupForm";
@@ -22,6 +22,12 @@ const App = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'space-between' }}>
+      <StatusBar
+        backgroundColor={"black"}
+        barStyle={"dark-content"}
+        hidden={false}
+        translucent={true}
+      />
       <Header />
       <View style={extranalStyles.box} >
         {/* <HandleForm/> // Handle Form */}
@@ -46,7 +52,8 @@ const App = () => {
 
         {/* <ModalView/> // Modal or Dialog Box */}
 
-        <PressableComponent/> // Pressable Component
+        {/* <PressableComponent/> // Pressable Component */}
+
       </View>
     </View>
   )
