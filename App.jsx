@@ -17,6 +17,7 @@ import RadioButton from "./src/components/buttons/RadioButton";
 import Loader from "./src/components/Loader";
 import ModalView from "./src/components/ModalView";
 import PressableComponent from "./src/components/buttons/PressableComponent";
+import PlatformComponent from "./src/components/PlatformComponent";
 
 const App = () => {
 
@@ -54,6 +55,7 @@ const App = () => {
 
         {/* <PressableComponent/> // Pressable Component */}
 
+         <PlatformComponent/> // Platform 
       </View>
     </View>
   )
