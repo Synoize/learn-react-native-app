@@ -30,16 +30,23 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
-          headerTitleStyle:{
-            color: 'green'
-          },
-          headerStyle:{
-            backgroundColor: 'pink'
-          },
-          headerShown:true
-        }}>
-        <Stack.Screen name="Home" component={HomeScreen} options={{headerTitle:"Home Screen", headerShown:false}}/>
-        <Stack.Screen name="SignupForm" component={SignupForm} options={{headerTitle:"Signup"}}/>
+        headerTitleStyle: {
+          color: 'green'
+        },
+        headerStyle: {
+          backgroundColor: 'pink'
+        },
+        headerTitle: () => <View style={{ flexDirection: 'row', }}>
+          <Button title="Login" onPress={() => { }} />
+        </View>,
+        headerRight: () => <View>
+          <Button title="Logout" onPress={() => { }} />
+        </View>,
+        headerTintColor: 'white',
+        headerShown: true
+      }}>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: true }} />
+        <Stack.Screen name="SignupForm" component={SignupForm} options={{ headerTitle: "Signup" }} />
         <Stack.Screen name="HandleForm" component={HandleForm} />
         <Stack.Screen name="Flatlist" component={Flatlist} />
         <Stack.Screen name="Map" component={Map} />
@@ -61,12 +68,12 @@ const App = () => {
   )
 }
 
-const HomeScreen = ({}) => {
+const HomeScreen = ({ }) => {
   const navigation = useNavigation()
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: 20 }}>
-      <Text style={{fontSize: 20}}>Home Screen</Text>
-      <Button title="Login" onPress={()=> navigation.navigate("SignupForm")}/> 
+      <Text style={{ fontSize: 20 }}>Home Screen</Text>
+      <Button title="Login" onPress={() => navigation.navigate("SignupForm")} />
     </View>
   )
 }
