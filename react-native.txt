@@ -112,3 +112,15 @@ MyReactNativeApp/
   > useEffect
 
 --> ConditionalRendering 
+
+--> Pressable 
+
+--> Modal - Diglock Box
+
+--> Platform - Devices
+
+--> Website into Application
+<WebView source={{ uri: 'https://learncontext.netlify.app/' }} style={{ flex: 1 }} />
+
+--> Navigation
+  > Type - Stack, Drawer, Tab

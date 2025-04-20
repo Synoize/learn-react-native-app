@@ -1,7 +1,8 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
 
-const SignupForm = () => {
+const SignupForm = ({navigation}) => {
     const defaultUserData = {
         name: '',
         email: '',
@@ -20,6 +21,7 @@ const SignupForm = () => {
         }
         console.warn('Form submitted:', user);
         setUser(defaultUserData);
+        navigation.navigate("Home")
     };
 
     return (
