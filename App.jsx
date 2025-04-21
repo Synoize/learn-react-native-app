@@ -1,4 +1,4 @@
-import { Button, StatusBar, StyleSheet, Text, View } from "react-native"
+import { Button, StatusBar, StyleSheet, Text, TextInput, View } from "react-native"
 import Header from "./src/components/Header";
 import { extranalStyles } from "./style";
 import SignupForm from "./src/components/SignupForm";
@@ -21,6 +21,7 @@ import PlatformComponent from "./src/components/PlatformComponent";
 import WebView from "react-native-webview";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useState } from "react";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,7 +47,9 @@ const App = () => {
         headerShown: true
       }}>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: true }} />
+        <Stack.Screen name="NewScreen" component={NewScreen} options={{ headerTitle: "New Screen" }} />
         <Stack.Screen name="SignupForm" component={SignupForm} options={{ headerTitle: "Signup" }} />
+        <Stack.Screen name="OtherScreen" component={OtherScreen} options={{ headerTitle: "Other" }} />
         <Stack.Screen name="HandleForm" component={HandleForm} />
         <Stack.Screen name="Flatlist" component={Flatlist} />
         <Stack.Screen name="Map" component={Map} />
@@ -69,11 +72,38 @@ const App = () => {
 }
 
 const HomeScreen = ({ }) => {
+  const [name, setName] = useState("");
+  const navigation = useNavigation();
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: 20, padding: 20}}>
+      <TextInput style={{backgroundColor: 'white', width: '100%', borderRadius: 10, padding:10}} placeholder="Enter your name" value={name} onChangeText={(val)=> setName(val)}/>
+      <Text style={{ fontSize: 20 }}>Home Screen</Text>
+      <Button title="Login" onPress={() => navigation.navigate("SignupForm")} />
+      <Button title="Go to Other Screen" onPress={() => navigation.navigate("OtherScreen", {name: name, status: "development"})} />
+    </View>
+  )
+}
+
+const NewScreen = ({ }) => {
   const navigation = useNavigation()
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: 20 }}>
-      <Text style={{ fontSize: 20 }}>Home Screen</Text>
+      <Text style={{ fontSize: 20 }}>New Screen</Text>
       <Button title="Login" onPress={() => navigation.navigate("SignupForm")} />
+      <Button title="Go to Other Screen" onPress={() => navigation.navigate("OtherScreen", {name: "Ios App", status: "ios development"})} />
+    </View>
+  )
+}
+
+const OtherScreen = ({navigation, route}) => {
+  const data = route.params
+  console.log("OtherScreen data", data);
+  
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: 20 }}>
+      <Text style={{ fontSize: 20 }}>{data.name} : {data.status}</Text>
+      <Button title="Go to Home" onPress={() => navigation.navigate("Home")} />
+      <Button title="Go to New" onPress={() => navigation.navigate("NewScreen")} />
     </View>
   )
 }

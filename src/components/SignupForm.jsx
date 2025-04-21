@@ -1,8 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
 
-const SignupForm = ({navigation}) => {
+const SignupForm = ({navigation, route}) => {
+    const data = route.params;
     const defaultUserData = {
         name: '',
         email: '',
@@ -49,6 +49,7 @@ const SignupForm = ({navigation}) => {
                 secureTextEntry
             />
             <Button title="Sign Up" onPress={handleFormSubmit} />
+
         </View>
     );
 };
