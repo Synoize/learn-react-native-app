@@ -124,3 +124,22 @@ MyReactNativeApp/
 
 --> Navigation
   > Type - Stack, Drawer, Tab
+
+--> Stack Navigation
+  > npm i @react-navigation/native
+  > npm i @react-navigation/native-stack // Stack = createNativeStackNavigator()
+
+  > App.jsx
+  <NavigationContainer>
+      <Stack.Navigator screenOptions={{}}>
+         <Stack.Screen name="name" component={component} options={{ headerShown: true }} />
+      </Stack.Navigator screenOptions={{}}>
+    </NavigationContainer>
+
+  > HomeScreen.jsx
+    const navigation = useNavigation();
+    navigation.navigate("OtherScreen");
+
+--> Tab Navigation
+  > npm i @react-navigation/native
+  > npm i @react-navigation/native-stack // Tab = createNativeStackNavigator()

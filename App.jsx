@@ -22,51 +22,75 @@ import WebView from "react-native-webview";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useState } from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   // return <WebView source={{ uri: 'https://learncontext.netlify.app/' }} style={{ flex: 1 }} />
 
+  // return (
+  //   <NavigationContainer>
+  //     <StatusBar
+  //       animated={true}
+  //       backgroundColor="#000000"
+  //       barStyle="dark-content"
+  //       showHideTransition="fade"
+  //     />
+  //     <Stack.Navigator screenOptions={{
+  //       headerTitleStyle: {
+  //         color: 'green'
+  //       },
+  //       headerStyle: {
+  //         backgroundColor: 'pink'
+  //       },
+  //       headerTitle: () => <View style={{ flexDirection: 'row', }}>
+  //         <Button title="Login" onPress={() => { }} />
+  //       </View>,
+  //       headerRight: () => <View>
+  //         <Button title="Logout" onPress={() => { }} />
+  //       </View>,
+  //       headerTintColor: 'white',
+  //       headerShown: true
+  //     }}>
+  //       <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: true }} />
+  //       <Stack.Screen name="NewScreen" component={NewScreen} options={{ headerTitle: "New Screen" }} />
+  //       <Stack.Screen name="SignupForm" component={SignupForm} options={{ headerTitle: "Signup" }} />
+  //       <Stack.Screen name="OtherScreen" component={OtherScreen} options={{ headerTitle: "Other" }} />
+  //       <Stack.Screen name="HandleForm" component={HandleForm} />
+  //       <Stack.Screen name="Flatlist" component={Flatlist} />
+  //       <Stack.Screen name="Map" component={Map} />
+  //       <Stack.Screen name="Grid" component={Grid} />
+  //       <Stack.Screen name="SectionListApp" component={SectionListApp} />
+  //       <Stack.Screen name="ClassComponent" component={ClassComponent} />
+  //       <Stack.Screen name="UseStateHook" component={UseStateHook} />
+  //       <Stack.Screen name="UseEffectHook" component={UseEffectHook} />
+  //       <Stack.Screen name="ConditionalRendering" component={ConditionalRendering} />
+  //       <Stack.Screen name="Flexbox" component={Flexbox} />
+  //       <Stack.Screen name="Buttons" component={Buttons} />
+  //       <Stack.Screen name="RadioButton" component={RadioButton} />
+  //       <Stack.Screen name="Loader" component={Loader} />
+  //       <Stack.Screen name="ModalView" component={ModalView} />
+  //       <Stack.Screen name="PressableComponent" component={PressableComponent} />
+  //       <Stack.Screen name="PlatformComponent" component={PlatformComponent} />
+  //     </Stack.Navigator>
+  //   </NavigationContainer>
+  // )
+
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        headerTitleStyle: {
-          color: 'green'
-        },
-        headerStyle: {
-          backgroundColor: 'pink'
-        },
-        headerTitle: () => <View style={{ flexDirection: 'row', }}>
-          <Button title="Login" onPress={() => { }} />
-        </View>,
-        headerRight: () => <View>
-          <Button title="Logout" onPress={() => { }} />
-        </View>,
-        headerTintColor: 'white',
-        headerShown: true
+      <Tab.Navigator screenOptions={{
+        tabBarStyle: { backgroundColor: 'pink' },
+        tabBarActiveTintColor: 'green',
+        tabBarInactiveTintColor: 'black',
+        tabBarLabelStyle: { fontSize: 12 },
+        tabBarLabelPosition: 'below-icon',
       }}>
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: true }} />
-        <Stack.Screen name="NewScreen" component={NewScreen} options={{ headerTitle: "New Screen" }} />
-        <Stack.Screen name="SignupForm" component={SignupForm} options={{ headerTitle: "Signup" }} />
-        <Stack.Screen name="OtherScreen" component={OtherScreen} options={{ headerTitle: "Other" }} />
-        <Stack.Screen name="HandleForm" component={HandleForm} />
-        <Stack.Screen name="Flatlist" component={Flatlist} />
-        <Stack.Screen name="Map" component={Map} />
-        <Stack.Screen name="Grid" component={Grid} />
-        <Stack.Screen name="SectionListApp" component={SectionListApp} />
-        <Stack.Screen name="ClassComponent" component={ClassComponent} />
-        <Stack.Screen name="UseStateHook" component={UseStateHook} />
-        <Stack.Screen name="UseEffectHook" component={UseEffectHook} />
-        <Stack.Screen name="ConditionalRendering" component={ConditionalRendering} />
-        <Stack.Screen name="Flexbox" component={Flexbox} />
-        <Stack.Screen name="Buttons" component={Buttons} />
-        <Stack.Screen name="RadioButton" component={RadioButton} />
-        <Stack.Screen name="Loader" component={Loader} />
-        <Stack.Screen name="ModalView" component={ModalView} />
-        <Stack.Screen name="PressableComponent" component={PressableComponent} />
-        <Stack.Screen name="PlatformComponent" component={PlatformComponent} />
-      </Stack.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: true }} />
+        <Tab.Screen name="New" component={NewScreen} options={{ headerTitle: "New Screen" }} />
+        <Tab.Screen name="Signup" component={SignupForm} options={{ headerTitle: "Signup" }} />
+      </Tab.Navigator>
     </NavigationContainer>
   )
 }
@@ -75,11 +99,11 @@ const HomeScreen = ({ }) => {
   const [name, setName] = useState("");
   const navigation = useNavigation();
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: 20, padding: 20}}>
-      <TextInput style={{backgroundColor: 'white', width: '100%', borderRadius: 10, padding:10}} placeholder="Enter your name" value={name} onChangeText={(val)=> setName(val)}/>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: 20, padding: 20 }}>
+      <TextInput style={{ backgroundColor: 'white', width: '100%', borderRadius: 10, padding: 10 }} placeholder="Enter your name" value={name} onChangeText={(val) => setName(val)} />
       <Text style={{ fontSize: 20 }}>Home Screen</Text>
       <Button title="Login" onPress={() => navigation.navigate("SignupForm")} />
-      <Button title="Go to Other Screen" onPress={() => navigation.navigate("OtherScreen", {name: name, status: "development"})} />
+      <Button title="Go to Other Screen" onPress={() => navigation.navigate("OtherScreen", { name: name, status: "development" })} />
     </View>
   )
 }
@@ -90,19 +114,19 @@ const NewScreen = ({ }) => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: 20 }}>
       <Text style={{ fontSize: 20 }}>New Screen</Text>
       <Button title="Login" onPress={() => navigation.navigate("SignupForm")} />
-      <Button title="Go to Other Screen" onPress={() => navigation.navigate("OtherScreen", {name: "Ios App", status: "ios development"})} />
+      <Button title="Go to Other Screen" onPress={() => navigation.navigate("OtherScreen", { name: "Ios App", status: "ios development" })} />
     </View>
   )
 }
 
-const OtherScreen = ({navigation, route}) => {
+const OtherScreen = ({ navigation, route }) => {
   const data = route.params
   console.log("OtherScreen data", data);
-  
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: 20 }}>
       <Text style={{ fontSize: 20 }}>{data.name} : {data.status}</Text>
-      <Button title="Go to Home" onPress={() => navigation.navigate("Home")} />
+      <Button title="Go to Back" onPress={() => navigation.goBack()} />
       <Button title="Go to New" onPress={() => navigation.navigate("NewScreen")} />
     </View>
   )
