@@ -23,13 +23,16 @@ import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const TopTab = createMaterialTopTabNavigator();
 
 const App = () => {
   // return <WebView source={{ uri: 'https://learncontext.netlify.app/' }} style={{ flex: 1 }} />
 
+  // Stack Navigation
   // return (
   //   <NavigationContainer>
   //     <StatusBar
@@ -78,19 +81,50 @@ const App = () => {
   //   </NavigationContainer>
   // )
 
+  // Bottom Tab Navigation
+  // return (
+  //   <NavigationContainer>
+  //     <Tab.Navigator screenOptions={{
+  //       headerTitleStyle: {
+  //         color: 'green'
+  //       },
+  //       headerStyle: {
+  //         backgroundColor: 'pink'
+  //       },
+  //       tabBarStyle: { backgroundColor: 'pink' },
+  //       tabBarActiveTintColor: 'green',
+  //       tabBarInactiveTintColor: 'black',
+  //       tabBarLabelStyle: { fontSize: 12 },
+  //       tabBarLabelPosition: 'below-icon',
+  //     }}>
+  //       <Tab.Screen name="Home" component={HomeScreen} options={{ headerTitle: "Home Screen" }} />
+  //       <Tab.Screen name="New" component={NewScreen} options={{ headerTitle: "New Screen" }} />
+  //       <Tab.Screen name="Signup" component={SignupForm} options={{ headerTitle: "Signup" }} />
+  //     </Tab.Navigator>
+  //   </NavigationContainer>
+  // )
+
+  // Top Tab Navigation
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{
+      <TopTab.Navigator screenOptions={{
+        headerTitleStyle: {
+          color: 'green'
+        },
+        headerStyle: {
+          backgroundColor: 'pink'
+        },
         tabBarStyle: { backgroundColor: 'pink' },
         tabBarActiveTintColor: 'green',
         tabBarInactiveTintColor: 'black',
         tabBarLabelStyle: { fontSize: 12 },
         tabBarLabelPosition: 'below-icon',
-      }}>
-        <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: true }} />
-        <Tab.Screen name="New" component={NewScreen} options={{ headerTitle: "New Screen" }} />
-        <Tab.Screen name="Signup" component={SignupForm} options={{ headerTitle: "Signup" }} />
-      </Tab.Navigator>
+      }}
+      >
+        <TopTab.Screen name="Home" component={HomeScreen} />
+        <TopTab.Screen name="New" component={NewScreen} />
+        <TopTab.Screen name="Signup" component={SignupForm} />
+      </TopTab.Navigator>
     </NavigationContainer>
   )
 }

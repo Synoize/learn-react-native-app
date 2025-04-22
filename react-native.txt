@@ -130,7 +130,7 @@ MyReactNativeApp/
   > npm i @react-navigation/native-stack // Stack = createNativeStackNavigator()
 
   > App.jsx
-  <NavigationContainer>
+    <NavigationContainer>
       <Stack.Navigator screenOptions={{}}>
          <Stack.Screen name="name" component={component} options={{ headerShown: true }} />
       </Stack.Navigator screenOptions={{}}>
@@ -140,6 +140,32 @@ MyReactNativeApp/
     const navigation = useNavigation();
     navigation.navigate("OtherScreen");
 
---> Tab Navigation
+--> Bottom Tab Navigation
   > npm i @react-navigation/native
-  > npm i @react-navigation/native-stack // Tab = createNativeStackNavigator()
+  > npm i @react-navigation/bottom-tabs // Tab = createBottomTabNavigator();
+
+  > App.jsx
+    <NavigationContainer>
+      <Tab.Navigator screenOptions={{}}>
+         <Tab.Screen name="name" component={component} options={{ headerShown: true }} />
+      </Tab.Navigator screenOptions={{}}>
+    </NavigationContainer>
+
+  > HomeScreen.jsx
+    const navigation = useNavigation();
+    navigation.navigate("OtherScreen");
+
+--> Top Tab Navigation
+  > npm i @react-navigation/native
+  > npm i @react-navigation/material-top-tabs // TopTab = createMaterialTopTabNavigator();
+
+  > App.jsx
+    <NavigationContainer>
+      <TopTab.Navigator screenOptions={{}}>
+         <TopTab.Screen name="name" component={component} options={{ headerShown: true }} />
+      </TopTab.Navigator screenOptions={{}}>
+    </NavigationContainer>
+
+  > HomeScreen.jsx
+    const navigation = useNavigation();
+    navigation.navigate("OtherScreen");
