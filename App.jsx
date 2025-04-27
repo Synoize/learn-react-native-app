@@ -25,6 +25,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import SimpleApi from "./src/components/API/SimpleApi";
+import FetchApiWithFlatList from "./src/components/API/FetchApiWithFlatList";
 
 // const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -132,7 +133,8 @@ const App = () => {
 
   // API 
   return <View>
-    <SimpleApi /> // Simple API Call
+    {/* <SimpleApi /> // Simple API Call with Map */}
+    <FetchApiWithFlatList/> // Fetch API with FlatList 
   </View>
 
 }
