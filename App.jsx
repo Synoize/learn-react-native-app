@@ -1,4 +1,5 @@
-import { Button, StatusBar, StyleSheet, Text, TextInput, View } from "react-native"
+import { useState } from "react";
+import { Button, StatusBar, StyleSheet, Text, TextInput, View } from "react-native";
 import Header from "./src/components/Header";
 import { extranalStyles } from "./style";
 import SignupForm from "./src/components/SignupForm";
@@ -21,15 +22,16 @@ import PlatformComponent from "./src/components/PlatformComponent";
 import WebView from "react-native-webview";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import SimpleApi from "./src/components/API/SimpleApi";
 
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
-const TopTab = createMaterialTopTabNavigator();
+// const Stack = createNativeStackNavigator();
+// const Tab = createBottomTabNavigator();
+// const TopTab = createMaterialTopTabNavigator();
 
 const App = () => {
+
   // return <WebView source={{ uri: 'https://learncontext.netlify.app/' }} style={{ flex: 1 }} />
 
   // Stack Navigation
@@ -105,29 +107,36 @@ const App = () => {
   // )
 
   // Top Tab Navigation
-  return (
-    <NavigationContainer>
-      <TopTab.Navigator screenOptions={{
-        headerTitleStyle: {
-          color: 'green'
-        },
-        headerStyle: {
-          backgroundColor: 'pink'
-        },
-        tabBarStyle: { backgroundColor: 'pink' },
-        tabBarActiveTintColor: 'green',
-        tabBarInactiveTintColor: 'black',
-        tabBarLabelStyle: { fontSize: 12 },
-        tabBarLabelPosition: 'below-icon',
-      }}
-      >
-        <TopTab.Screen name="Home" component={HomeScreen} />
-        <TopTab.Screen name="New" component={NewScreen} />
-        <TopTab.Screen name="Signup" component={SignupForm} />
-      </TopTab.Navigator>
-    </NavigationContainer>
-  )
+  // return (
+  //   <NavigationContainer>
+  //     <TopTab.Navigator screenOptions={{
+  //       headerTitleStyle: {
+  //         color: 'green'
+  //       },
+  //       headerStyle: {
+  //         backgroundColor: 'pink'
+  //       },
+  //       tabBarStyle: { backgroundColor: 'pink' },
+  //       tabBarActiveTintColor: 'green',
+  //       tabBarInactiveTintColor: 'black',
+  //       tabBarLabelStyle: { fontSize: 12 },
+  //       tabBarLabelPosition: 'below-icon',
+  //     }}
+  //     >
+  //       <TopTab.Screen name="Home" component={HomeScreen} />
+  //       <TopTab.Screen name="New" component={NewScreen} />
+  //       <TopTab.Screen name="Signup" component={SignupForm} />
+  //     </TopTab.Navigator>
+  //   </NavigationContainer>
+  // )
+
+  // API 
+  return <View>
+    <SimpleApi /> // Simple API Call
+  </View>
+
 }
+
 
 const HomeScreen = ({ }) => {
   const [name, setName] = useState("");

@@ -26,35 +26,35 @@ const Map = () => {
         { id: 22, name: "Tanmay" },
         { id: 23, name: "Uday" },
         { id: 24, name: "Vikram" },
-        
+
     ];
 
-    return(
+    return (
         <View>
             <ScrollView>
-            {
-                data.map((value, index) => {
-                    return (
-                        <View key={index} style={styles.container}>
-                            <Text style={styles.name}>{`${index + 1}. ${value.name}`}</Text>
-                        </View>
-                    )
-                })
-            }
+                {
+                    data.map((value, index) => {
+                        return (
+                            <View key={index} style={styles.container}>
+                                <Text style={styles.name}>{`${index + 1}. ${value.name}`}</Text>
+                            </View>
+                        )
+                    })
+                }
             </ScrollView>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container:{
-        padding:10,
+    container: {
+        padding: 10,
 
     },
-    name:{
-        backgroundColor:'#f4f4f4',
+    name: {
+        backgroundColor: '#f4f4f4',
         padding: 10,
-        fontSize:20,
+        fontSize: 20,
         textAlign: 'start',
     }
 })

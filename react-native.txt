@@ -169,3 +169,7 @@ MyReactNativeApp/
   > HomeScreen.jsx
     const navigation = useNavigation();
     navigation.navigate("OtherScreen");
+
+--> Drawer Navigation
+  > npm install @react-navigation/drawer
+  > npm install react-native-gesture-handler react-native-reanimated
