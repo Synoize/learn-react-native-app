@@ -175,7 +175,23 @@ MyReactNativeApp/
   > npm install react-native-gesture-handler react-native-reanimated
 
 
-
-
-
 --> Fetch API : Map & FlatList
+
+--> JSON Server - Make db file Get API data with Postman
+  > npm i -g json-server : imstall json-server globally
+  > create file inside the server : db.json
+  > npx json-server db.json : start server
+  > Endpoints : http://localhost:3000/users
+  > In Local DB use in Methods : Post, Get, Put, Patch, Delete, Update
+
+--> Fetch Api from Local server using IP & Another method
+  > run json-server with IP Address : http://192.168.211.29:3000/users
+
+  > another method : Ngrok
+    > choco install ngrok
+    > ngrok config add-authtoken 2wLdt8k83KiEWkPyjFr6x2CFqzM_5RpeQjYAEJsAcHKA1q72C : https://ngrok.com/downloads/windows
+    > ngrok http http://localhost:3000
+
+    > fetch api : https://e6ad-2409-40e5-116b-c808-a8fa-693d-600f-167e.ngrok-free.app/users
+
+    
