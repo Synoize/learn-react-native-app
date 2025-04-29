@@ -2,16 +2,15 @@ import { useState } from "react";
 import { ActivityIndicator, Alert, Button, StyleSheet, Text, TextInput, View } from "react-native"
 
 const FormPostMethodApi = () => {
-    const [loading, setLoading] = useState(false);
-    const [response, setResponse] = useState(null);
-    const [error, setError] = useState(null)
-
     const postData = {
         username: null,
         title: null,
         content: null,
     }
 
+    const [loading, setLoading] = useState(false);
+    const [response, setResponse] = useState(null);
+    const [error, setError] = useState(postData);
     const [post, setPost] = useState(postData);
 
     const handleChangeInput = (name, value) => {
@@ -23,14 +22,14 @@ const FormPostMethodApi = () => {
 
         try {
             if (post.username === null) {
-                setError("Username is required!");
+                setError({ username: "Username is required!" });
                 return;
             } else if (post.title === null) {
-                setError("Title is required!");
+                setError({ title: "Title is required!" });
                 return;
             }
             else if (post.content === null) {
-                setError("Content is required!");
+                setError({ content: "Content is required!" });
                 return;
             }
 
@@ -58,7 +57,6 @@ const FormPostMethodApi = () => {
 
     setTimeout(() => {
         setResponse(null);
-        setError(null);
     }, 5000)
 
     return <View style={{ padding: 20 }}>
@@ -69,23 +67,30 @@ const FormPostMethodApi = () => {
         {
             response && <Text style={{ fontSize: 16, textAlign: 'center', marginTop: 10, color: 'green' }}>{response}</Text>
         }
-        {
-            error && <Text style={{ fontSize: 14, textAlign: 'center', marginTop: 10, color: 'red' }}>{error}</Text>
-        }
+
         <View style={{ marginTop: 10, gap: 16 }}>
             <View style={{ gap: 4 }}>
                 <Text>Username</Text>
                 <TextInput style={styles.inputbox} placeholder="Write your name" value={post.username} onChangeText={(value) => handleChangeInput('username', value)} />
+                {
+                    error.username && <Text style={{ fontSize: 14, marginTop: 4, color: 'red' }}>{error.username}</Text>
+                }
             </View>
 
             <View style={{ gap: 4 }}>
                 <Text>Title</Text>
                 <TextInput style={styles.inputbox} placeholder="Write your title" value={post.title} onChangeText={(value) => handleChangeInput('title', value)} />
+                {
+                    error.title && <Text style={{ fontSize: 14, marginTop: 4, color: 'red' }}>{error.title}</Text>
+                }
             </View>
 
             <View style={{ gap: 4 }}>
                 <Text>Content</Text>
                 <TextInput style={styles.inputbox} placeholder="Write your content" value={post.content} onChangeText={(value) => handleChangeInput('content', value)} />
+                {
+                    error.content && <Text style={{ fontSize: 14, marginTop: 4, color: 'red' }}>{error.content}</Text>
+                }
             </View>
 
             <Button title="Post" onPress={fetchPostMethod} color="green" />
