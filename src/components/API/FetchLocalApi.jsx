@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Button, Text, View } from "react-native"
 
 const FetchLocalApi = () => {
-    const ngrok_api = "https://e6ad-2409-40e5-116b-c808-a8fa-693d-600f-167e.ngrok-free.app/users"; 
-    const api = "http://192.168.211.29:3000/users";
+    const ngrok_api = "https://e6ad-2409-40e5-116b-c808-a8fa-693d-600f-167e.ngrok-free.app/users"; //using ngrok server API
+    const api = "http://192.168.211.29:3000/users"; // using IP address of the local server
     const [user, setUser] = useState([]);
 
 

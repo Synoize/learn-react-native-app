@@ -27,6 +27,8 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import SimpleApi from "./src/components/API/SimpleApi";
 import FetchApiWithFlatList from "./src/components/API/FetchApiWithFlatList";
 import FetchLocalApi from "./src/components/API/FetchLocalApi";
+import PostApi from "./src/components/API/PostApi";
+import FormPostMethodApi from "./src/components/API/FormPostMethod";
 
 // const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -137,7 +139,9 @@ const App = () => {
     <StatusBar barStyle="dark-content"/>
     {/* <SimpleApi /> // Simple API Call with Map */}
     {/* <FetchApiWithFlatList/> // Fetch API with FlatList  */}
-    <FetchLocalApi/> //Fetch Local Api 
+    {/* <FetchLocalApi/> //Fetch Local Api  */}
+    {/* <PostApi/> // Post API Call */}
+    <FormPostMethodApi/> {/* Post Data using Post Method API Call with Form */}
   </View>
 
 }
