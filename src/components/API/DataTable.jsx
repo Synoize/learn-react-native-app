@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { FlatList, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 
 const DataTable = () => {
-    const API = "http://192.168.211.29:3000";
+    const API = "http://192.168.189.29:3000";
 
     const [users, setUsers] = useState([]);
     const [editUser, setEditUser] = useState(null);
-    const [modalVisible, setModalVisible] = useState(true);
+    const [modalVisible, setModalVisible] = useState(false);
 
     useEffect(() => {
         getUsersData();
@@ -42,8 +42,6 @@ const DataTable = () => {
     }
 
     const handleUpdateUser = async () => {
-        console.log(editUser.id);
-        
         try {
             const response = await fetch(`${API}/users/${editUser.id}`, {
                 method: 'PUT',
@@ -127,7 +125,7 @@ const DataTable = () => {
                     </View>
 
                     <View style={styles.modalActionButtonContainer}>
-                        <TouchableOpacity onPress={() => { handleUpdateUser(), setModalVisible(false) }}>
+                        <TouchableOpacity onPress={() => { handleUpdateUser() }}>
                             <Text style={[{ backgroundColor: 'green' }, styles.modalActionButton]}>Save</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => { setModalVisible(false) }}>
@@ -194,7 +192,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     modalContent: {
-        backgroundColor: '#ccc',
+        backgroundColor: 'white',
         padding: 20,
         borderRadius: 20,
 
@@ -222,7 +220,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         width: '300',
-        backgroundColor: 'rgba(145, 145, 145, 0.5)',
+        backgroundColor: 'rgb(220, 220, 220)',
         borderColor: 'gray',
         borderWidth: 0.5,
         borderRadius: 10,

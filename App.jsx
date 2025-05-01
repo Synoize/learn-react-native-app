@@ -30,6 +30,7 @@ import FetchLocalApi from "./src/components/API/FetchLocalApi";
 import PostApi from "./src/components/API/PostApi";
 import FormPostMethodApi from "./src/components/API/FormPostMethod";
 import DataTable from "./src/components/API/DataTable";
+import UseRef from "./src/components/hooks/UseRef";
 
 // const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -143,7 +144,8 @@ const App = () => {
     {/* <FetchLocalApi/> // Fetch Local Api  */}
     {/* <PostApi/> // Post API Call */}
     {/* <FormPostMethodApi/> // Post Data using Post Method API Call with Form */}
-    <DataTable/> // Get Data in Table using flatlist
+    {/* <DataTable/> // Get Data in Table using flatlist */}
+    <UseRef/> // useRef hook
   </View>
 
 }

@@ -110,6 +110,7 @@ MyReactNativeApp/
 --> Hooks
   > useState
   > useEffect
+  > useRef
 
 --> ConditionalRendering 
 
@@ -198,5 +199,10 @@ MyReactNativeApp/
 --> Validate this form
 
 --> Get request with JSON Api and render the Data in Table using flatlist
+
+--> Create a user data Table using GET Method
+--> Delete a user from in Table using DELETE Method
+--> Update a user data from in Table using PUT Method
     
-    
+
+--> Element Inspector - use for inspect the app and show styling : ctrl + M
