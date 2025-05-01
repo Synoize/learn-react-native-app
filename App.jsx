@@ -31,6 +31,7 @@ import PostApi from "./src/components/API/PostApi";
 import FormPostMethodApi from "./src/components/API/FormPostMethod";
 import DataTable from "./src/components/API/DataTable";
 import UseRef from "./src/components/hooks/UseRef";
+import Crud from "./src/components/API/Crud";
 
 // const Stack = createNativeStackNavigator();
 // const Tab = createBottomTabNavigator();
@@ -145,7 +146,8 @@ const App = () => {
     {/* <PostApi/> // Post API Call */}
     {/* <FormPostMethodApi/> // Post Data using Post Method API Call with Form */}
     {/* <DataTable/> // Get Data in Table using flatlist */}
-    <UseRef/> // useRef hook
+    {/* <UseRef/> // useRef hook */}
+    <Crud/> // CRUD Opetation using Axios for fetch api 
   </View>
 
 }

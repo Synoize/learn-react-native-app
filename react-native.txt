@@ -206,3 +206,12 @@ MyReactNativeApp/
     
 
 --> Element Inspector - use for inspect the app and show styling : ctrl + M
+
+--> CRUD Opetation using Axios for fetch api : GET, POST, DELETE, PUT, PATCH
+  > npm i axios - install axios package
+  > import axios from 'axios';
+  > use for fatch api : axios.get(API_URI) : GET
+                        axios.post(API_URI, data) : POST
+                        axios.delete(API_URI/:id) : DELETE
+                        axios.put(API_URI/:id, data) : PUT
+                        axios.patch(API_URI/:id, data) : PATCH
