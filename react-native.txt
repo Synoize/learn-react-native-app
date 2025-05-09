@@ -22,7 +22,14 @@ npm i
 --> for run android emulator - npx react-native run-android
 --> show logs for android - npx react-native log-android
 
---> First Program :
+--> First Program : rnfes - simple code snippet
+
+--> Clean Android & Rebuild
+  > cd android
+  > ./gradlew clean
+  > npx react-native run-android
+
+--> npx kill port 8081
 
 <View style={backgroundStyle}>
       <StatusBar
@@ -128,6 +135,7 @@ MyReactNativeApp/
 
 --> Stack Navigation
   > npm i @react-navigation/native
+  > npm install react-native-screens react-native-safe-area-context
   > npm i @react-navigation/native-stack // Stack = createNativeStackNavigator()
 
   > App.jsx
@@ -210,8 +218,82 @@ MyReactNativeApp/
 --> CRUD Opetation using Axios for fetch api : GET, POST, DELETE, PUT, PATCH
   > npm i axios - install axios package
   > import axios from 'axios';
-  > use for fatch api : axios.get(API_URI) : GET
-                        axios.post(API_URI, data) : POST
-                        axios.delete(API_URI/:id) : DELETE
-                        axios.put(API_URI/:id, data) : PUT
-                        axios.patch(API_URI/:id, data) : PATCH
+  > use for fatch api GET : axios.get(API_URI)
+                      POST : axios.post(API_URI, dataObject)
+                      DELETE : axios.delete(API_URI/:id)
+                      PUT : axios.put(API_URI/:id, dataObject)
+                      PATCH : axios.patch(API_URI/:id, dataObject)
+
+--> React Native Vector Icons 
+  > Package Install : https://www.npmjs.com/package/react-native-vector-icons 
+                    > npm install --save react-native-vector-icons
+                    > now scroll down and setup for android : android/app/build.gradle
+                      - apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+                      - implementation project(':react-native-vector-icons')
+
+  > Use Icons from Website : https://oblador.github.io/react-native-vector-icons/
+
+
+-->  Add fonts in project
+  > In project folder create new 'assets/fonts' folder 
+  > In 'assets/fonts' folder paste all the fonts
+  > Again in Project folder create new file 'react-native.config.js'
+  > in this file paste bellow code:
+    module.exports = {
+      project: {
+          android: {},
+          ios: {},
+      },
+      assets: ['./assets/fonts'],
+    }
+  > Now in Src folder create 'ulils' folder 
+  > In this folder create 'fonts.js' file and paste all fonts like this:
+    export const fonts = {
+      ExtraBold: "Outfit-ExtraBold",
+      Bold: "Outfit-Bold",
+      Light: "Outfit-Light",
+      Medium: "Outfit-Medium",
+      Regular: "Outfit-Regular",
+      SemiBold: "Outfit-SemiBold",
+    }
+  > now use any screens file fonts like this - fontFamily :fonts.Regular
+
+--> Add App Icon
+  > first generate app icon from - IconKitchen website
+  > download zip file and extrect all 
+  > now inside the 'android/app/src/main/res/' remove all 'mipmap' folder and add new extracted all 'mipmap' folder
+  > now restart : npx react-native run-android
+
+
+--> Add App Splash Screens
+  > generate the Splash Screens and dowonload zip file : Ape Tools Website
+  > now extract all from zip file
+
+  > npm i react-native-splash-screen : install
+  > inside the folders 'android/app/src/main/java' in 'MainActivity.kt' add bellow script 
+    -- import android.os.Bundle;
+    -- import org.devio.rn.splashscreen.SplashScreen;
+    
+
+    -- Override fun onCreate(savedInstanceState: Bundle?) {
+        SplashScreen.show(this);  // here
+        super.onCreate(savedInstanceState);
+      }
+
+  > inside the folders 'android/app/src/main/res' paste all extracted splash screens images
+  > inside these folders 'app/src/main/res" add 'layout' folder
+  > inside the 'layout' folder create a 'launch_screen.xml' file and paste bellow code
+    -- <?xml version="1.0" encoding="utf-8"?>
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#121928">
+
+            <ImageView android:layout_width="match_parent"        android:layout_height="match_parent" android:src="@drawable/screen"  android:scaleType="centerCrop" 
+            android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
+  > now restart : npx react-native run-android
+
+
+  
